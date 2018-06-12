@@ -130,7 +130,7 @@ class FirstPage extends React.Component {
 		
 		return (
 			<Container style={{ backgroundColor: '#ffffff' }}>
-				<StatusBarComponent backgroundColor='#fff' barStyle="dark-content" />
+				<StatusBarComponent hidden backgroundColor='#fff' barStyle="dark-content" />
 				<ImageBackground
 					style={{
 						height: height,
@@ -193,12 +193,13 @@ class FirstPage extends React.Component {
 							passwordValue={this.state.password}
 							confirmPasswordValue={this.state.confirmPassword}
 							
-							onChangeFirstNameText={firstName => this.setState({ firstName })}
-							onChangeLastNameText={lastName => this.setState({ lastName })}
-							onChangeEmailText={email => this.setState({ email })}
+							onChangeFirstNameText={firstName => this.setState({ firstName: firstName.trim()  })}
+							onChangeLastNameText={lastName => this.setState({ lastName: lastName.trim()  })}
+							onChangeEmailText={email =>  this.setState({ email: email.trim() })}
 							onChangePasswordText={password => this.setState({ password })}
 							onChangeConfirmPasswordText={confirmPassword => this.setState({ confirmPassword })}
-						
+							
+							onSubmit={this.submitForm}
 						/>
 						
 						{/*Button*/}
@@ -216,16 +217,16 @@ class FirstPage extends React.Component {
 							onPress={this.submitForm}
 							block
 							dark>
-						
-								<Text
-									uppercase={false}
-									style={{
-										color: '#df5559',
-										fontWeight: '900',
-										fontFamily: Fonts.GothamRounded
-									}}>
-									Next
-								</Text>
+							
+							<Text
+								uppercase={false}
+								style={{
+									color: '#df5559',
+									fontWeight: '900',
+									fontFamily: Fonts.GothamRounded
+								}}>
+								Next
+							</Text>
 						</Button>
 						
 						{/*Sign In link*/}
@@ -257,7 +258,7 @@ class FirstPage extends React.Component {
 									}}> Sign In</Text>
 							</TouchableOpacity>
 						</Content>
-						
+					
 					</Content>
 				</ImageBackground>
 			</Container>
