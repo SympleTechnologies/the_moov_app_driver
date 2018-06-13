@@ -20,8 +20,8 @@ class BasicInformation extends React.Component {
 	 * @private
 	 */
 	_handleFocusNextField = (nextField) => { this.refs[nextField].wrappedInstance.focus()};
-	
-	render() {
+		
+		render() {
 		let { width } = Dimensions.get('window');
 		const {
 			firstNameValue,
