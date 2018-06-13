@@ -2,7 +2,7 @@
 import React from 'react';
 
 // react-native libraries
-import { Dimensions, ImageBackground, StyleSheet, Platform, Image, TouchableOpacity } from 'react-native';
+import { Dimensions, ImageBackground, StyleSheet, Platform, Image, TouchableOpacity, View } from 'react-native';
 
 // third-party libraries
 import { Container, Text, Content, Button, Toast } from 'native-base';
@@ -174,7 +174,9 @@ class FirstPage extends React.Component {
 								width: width / 1.25,
 							}}
 						>
-							<CardNumber number={1} />
+							<View>
+								<CardNumber number={1} />
+							</View>
 							
 							<Content
 								contentContainerStyle={{
@@ -217,16 +219,16 @@ class FirstPage extends React.Component {
 							onPress={this.submitForm}
 							block
 							dark>
-							
-							<Text
-								uppercase={false}
-								style={{
-									color: '#df5559',
-									fontWeight: '900',
-									fontFamily: Fonts.GothamRounded
-								}}>
-								Next
-							</Text>
+						
+								<Text
+									uppercase={false}
+									style={{
+										color: '#df5559',
+										fontWeight: '900',
+										fontFamily: Fonts.GothamRounded
+									}}>
+									Next
+								</Text>
 						</Button>
 						
 						{/*Sign In link*/}
@@ -258,7 +260,7 @@ class FirstPage extends React.Component {
 									}}> Sign In</Text>
 							</TouchableOpacity>
 						</Content>
-					
+						
 					</Content>
 				</ImageBackground>
 			</Container>
