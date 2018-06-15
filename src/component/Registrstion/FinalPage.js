@@ -116,12 +116,12 @@ class FinalPage extends React.Component {
 	signUpWithEmailAndPassword  = async () => {
 		await axios.post('https://moov-backend-staging.herokuapp.com/api/v1/signup', {
 			"password": this.state.password,
-			"user_type": "driver",
-			"firstname":  this.state.firstName ,
-			"lastname": this.state.lastName,
-			"email": this.state.email,
+			"user_type": "student",
+			"firstname":  this.toTitleCase(this.state.firstName),
+			"lastname": this.toTitleCase(this.state.lastName),
+			"email": this.state.email.toLocaleLowerCase(),
 			"mobile_number": this.state.phoneNumber,
-			"school": this.state.selectedSchool,
+			"school": this.toTitleCase(this.state.selectedSchool),
 			"authentication_type": this.state.authentication_type
 		})
 			.then((response) => {
@@ -130,9 +130,23 @@ class FinalPage extends React.Component {
 					.then(this.navigateUserTo('Moov'))
 			})
 			.catch((error) => {
-				this.errorMessage(`${error.response.data.data.message}`);
-				this.setState({ loading: !this.state.loading });
+				return error.message === 'Network Error'
+					? this.errorMessage(error.message)
+					: this.errorMessage(`${error.response.data.data.message}`);
 			});
+	};
+	
+	/**
+	 * toTitleCase
+	 *
+	 * converts covenant university to Covenant University
+	 * @param {string} schoolName - school name
+	 * @return {*}
+	 */
+	toTitleCase = (schoolName) => {
+		return schoolName.replace(/\w\S*/g, (txt) => {
+			return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+		});
 	};
 	
 	/**
