@@ -6,44 +6,50 @@ import { StackNavigator } from 'react-navigation';
 import { Root } from 'native-base';
 
 // screens
-import { LandingPage, Moov, SignInPage } from "./src/screens";
+import { LandingPage, Moov, Profile, SignInPage } from "./src/screens";
 
 // components
 import { FirstPage,  SecondPage, FinalPage } from "./src/component/Registrstion";
 
 const AppNavigator = StackNavigator({
-	LandingPage: {
-		screen: LandingPage,
-		navigationOptions: {
-			header: null,
-		}
-	},
-	SignInPage: {
-		screen: SignInPage,
-		navigationOptions: {
-			header: null,
-		}
-	},
-	FirstPage: {
-		screen: FirstPage,
-		navigationOptions: {
-			header: null,
-		}
-	},
-	SecondPage: {
-		screen: SecondPage,
-		navigationOptions: {
-			header: null,
-		}
-	},
-	FinalPage: {
-		screen: FinalPage,
-		navigationOptions: {
-			header: null,
-		}
-	},
-	Moov: {
-		screen: Moov,
+	// LandingPage: {
+	// 	screen: LandingPage,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	// SignInPage: {
+	// 	screen: SignInPage,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	// FirstPage: {
+	// 	screen: FirstPage,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	// SecondPage: {
+	// 	screen: SecondPage,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	// FinalPage: {
+	// 	screen: FinalPage,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	// Moov: {
+	// 	screen: Moov,
+	// 	navigationOptions: {
+	// 		header: null,
+	// 	}
+	// },
+	Profile: {
+		screen: Profile,
 		navigationOptions: {
 			header: null,
 		}

@@ -116,7 +116,7 @@ class FinalPage extends React.Component {
 	signUpWithEmailAndPassword  = async () => {
 		await axios.post('https://moov-backend-staging.herokuapp.com/api/v1/signup', {
 			"password": this.state.password,
-			"user_type": "student",
+			"user_type": "driver",
 			"firstname":  this.toTitleCase(this.state.firstName),
 			"lastname": this.toTitleCase(this.state.lastName),
 			"email": this.state.email.toLocaleLowerCase(),
@@ -127,7 +127,7 @@ class FinalPage extends React.Component {
 			.then((response) => {
 				this.successMessage(`${response.data.data.message}`);
 				this.saveTokenToLocalStorage(response.data.data.token)
-					.then(this.navigateUserTo('Moov'))
+					.then(this.navigateUserTo('Profile'))
 			})
 			.catch((error) => {
 				return error.message === 'Network Error'
